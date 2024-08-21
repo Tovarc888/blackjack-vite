@@ -20,10 +20,11 @@ const btnDetener = document.querySelector('#btnDetener');
 const btnNuevo   = document.querySelector('#btnNuevo');
 
 const divCartasJugador     = document.querySelector('#jugador-cartas');
-const divCartasComputadora = document.querySelector('#computadora-cartas');
+const divCartasComputadora   = document.querySelector('#computadora-cartas');
 
-const puntosHTML = document.querySelectorAll('small');
 
+const puntosHTML            = document.querySelector('#puntosJugador');
+const puntosComputadoraHTML = document.querySelector('#puntosPC');
 // Esta función crea un nuevo deck
 
 deck = crearDeck( tipos, especiales );
@@ -38,22 +39,23 @@ btnPedir.addEventListener('click', () => {
     const carta = pedirCarta(deck);
     
     puntosJugador = puntosJugador + valorCarta( carta );
-    puntosHTML[0].innerText = puntosJugador;
+    puntosHTML.innerText = puntosJugador;
     
     // <img class="carta" src="assets/cartas/2C.png">
     const imgCarta = crearCartaHTML(carta);
     divCartasJugador.append(imgCarta);
+
     if ( puntosJugador > 21 ) {
         console.warn('Lo siento mucho, perdiste');
         btnPedir.disabled   = true;
         btnDetener.disabled = true;
-        turnoComputadora( puntosJugador, puntosHTML[1], divCartasComputadora,deck);
+        turnoComputadora( puntosJugador, divCartasComputadora, puntosComputadoraHTML, deck);
 
     } else if ( puntosJugador === 21 ) {
         console.warn('21, genial!');
         btnPedir.disabled   = true;
         btnDetener.disabled = true;
-        turnoComputadora( puntosJugador, puntosHTML[1], divCartasComputadora,deck ); 
+        turnoComputadora( puntosJugador, divCartasComputadora, puntosComputadoraHTML, deck ); 
     }
 
 });
@@ -63,7 +65,7 @@ btnDetener.addEventListener('click', () => {
     btnPedir.disabled   = true;
     btnDetener.disabled = true;
 
-    turnoComputadora( puntosJugador, puntosHTML[1], divCartasComputadora,deck );
+    turnoComputadora( puntosJugador, divCartasComputadora, puntosComputadoraHTML,deck );
 });
 
 btnNuevo.addEventListener('click', () => {
@@ -75,11 +77,11 @@ btnNuevo.addEventListener('click', () => {
     puntosJugador     = 0;
     puntosComputadora = 0;
     
-    puntosHTML[0].innerText = 0;
-    puntosHTML[1].innerText = 0;
+    //puntosHTML[0].innerText = 0;
+    //puntosHTML[1].innerText = 0;
 
-    divCartasComputadora.innerHTML = '';
-    divCartasJugador.innerHTML = '';
+    //divCartasComputadora.innerHTML = '';
+    //divCartasJugador.innerHTML = '';
 
     btnPedir.disabled   = false;
     btnDetener.disabled = false;

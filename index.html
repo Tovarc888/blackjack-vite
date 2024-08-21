@@ -14,24 +14,22 @@
     <div class="row mt-2">
         <div id="divBotones" class="col text-center">
             <button id = "btnNuevo"   class = "btn btn-success"> Nuevo Juego</button>
-            <button id = "btnPedir"    class = "btn btn-primary"> Pedir carta</button>
+            <button id = "btnPedir"   class = "btn btn-primary"> Pedir carta</button>
             <button id = "btnDetener" disabled="disabled" class = "btn btn-danger"> Detener </button>
         </div>
     </div>
     <div class="row container">
         <div class="col">
-            <h1>Jugador 1 - <small>0</small></h1>
-            <div id="jugador-cartas" class="divCartas">
-                <!-- <img class="carta" src="assets/cartas/red_back.png" alt=""> -->
-            </div> 
+            <h1>Jugador 1 - <small id="puntosJugador">  </small></h1>
+            <div id="jugador-cartas" class="divCartas"></div> 
         </div>
     </div>
-    <div id="divCel" class="flotante"></div>
     <div class="row container mt-2">
         <div class="col">
-            <h1>Computadora 1 - <small>0</small></h1>
+            <h1>Computadora 1 - <small id="puntosPC"></small></h1>
             <div id="computadora-cartas" class="divCartas">
-                <!-- <img class="carta" src="assets/gif/polvora.gif" alt=""> -->
+
+
             </div>
         </div>
     </div>
